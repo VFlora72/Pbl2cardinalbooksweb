@@ -54,7 +54,6 @@
       },
       "scripts": {
           "dev": "vite",
-          "build": "npm i"
-          "postbuild": "npm run dev"
+          "build": "vite build"
       }
   }
