@@ -65,17 +65,20 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             <p className="text-center">Viveka Flora</p>
           </button>
           
-          <div className="bg-white border-4 border-[#B22222] p-4 shadow-md hover:shadow-xl transition-shadow">
+          <button 
+            onClick={() => onNavigate('sean-profile')}
+            className="bg-white border-4 border-[#B22222] p-4 shadow-md hover:shadow-xl transition-shadow cursor-pointer text-left"
+          >
             <div className="aspect-square bg-gray-100 flex items-center justify-center mb-3 overflow-hidden">
               <img 
                 src={seanImage} 
                 alt="Sean Doyle" 
                 className="w-full h-full object-cover"
-                style={{ objectPosition: 'center 20%' }}
+                style={{ objectPosition: 'center 30%' }}
               />
             </div>
             <p className="text-center">Sean Doyle</p>
-          </div>
+          </button>
           
           <div className="bg-white border-4 border-[#B22222] p-4 shadow-md hover:shadow-xl transition-shadow">
             <div className="aspect-square bg-gray-100 flex items-center justify-center mb-3">

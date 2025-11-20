@@ -7,6 +7,7 @@ import { StoreHoursPage } from './components/StoreHoursPage';
 import { BookDetailPage } from './components/BookDetailPage';
 import { MadisonProfilePage } from './components/MadisonProfilePage';
 import { VivekaProfilePage } from './components/VivekaProfilePage';
+import { SeanProfilePage } from './components/SeanProfilePage';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -69,6 +70,7 @@ export default function App() {
         {currentPage === 'hours' && <StoreHoursPage />}
         {currentPage === 'madison-profile' && <MadisonProfilePage onNavigate={handleNavigate} />}
         {currentPage === 'viveka-profile' && <VivekaProfilePage onNavigate={handleNavigate} />}
+        {currentPage === 'sean-profile' && <SeanProfilePage onNavigate={handleNavigate} />}
         {currentPage === 'book-detail' && selectedBookId && (
           <BookDetailPage bookId={selectedBookId} onNavigate={handleNavigate} />
         )}
