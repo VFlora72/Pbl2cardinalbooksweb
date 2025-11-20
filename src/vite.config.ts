@@ -4,5 +4,10 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Pbl2cardinalbooksweb/', // CHANGE THIS to match your GitHub repo name!
+  base: '/Pbl2cardinalbooksweb/', // Updated to match your GitHub repo name
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true, // This helps with debugging
+  }
 })
