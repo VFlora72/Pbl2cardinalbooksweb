@@ -1,10 +1,10 @@
-name: Deploy to GitHub Pages
+name: Deploy Cardinal Books to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Change to 'master' if your default branch is master
-  workflow_dispatch:
+      - main  # Triggers when you push to the main branch (change to 'master' if needed)
+  workflow_dispatch:  # Allows you to manually run this workflow from the Actions tab
 
 permissions:
   contents: read
@@ -16,31 +16,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
           
       - name: Install dependencies
-        run: npm install
+        run: npm ci
         
-      - name: Build
+      - name: Build website
         run: npm run build
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
-      - name: Upload artifact
+      - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
           
+  # Deploy job
   deploy:
     environment:
       name: github-pages
